@@ -1,34 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&family=Oleo+Script+Swash+Caps&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&family=Oleo+Script+Swash+Caps&display=swap");
 
 #barraNav {
-    background-color: turquoise;
-    padding: 8px;
-    margin: 0;
-    padding-left: 0;
-    margin-left: 0;
-    border: turquoise;
+  background-color: turquoise;
+  margin: 0;
+  padding-left: 0;
+  margin-left: 0;
+  border: turquoise;
 }
 
 .titulo {
-    text-align: center;
-    font-family: 'Alumni Sans Inline One', cursive;
-    font-size: 50px;
+  text-align: center;
+  font-family: "Alumni Sans Inline One", cursive;
+  font-size: 50px;
 }
 
 button {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    display: inline-block;
-    width: 120px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  display: inline-block;
+  width: 120px;
 }
 
-label {
-    font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: 20px;
+.user-entry-container {
+  display: none;
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 0.5rem;
+  min-height: 3rem;
+  font-family: 'Oleo Script Swash Caps', cursive;
 }
 
-textarea {
-    font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: 20px;
+.user-entry-container:focus{
+    text-transform: lowercase;
+}
+
+.user-entry-container:empty::before {
+  position: absolute;
+  content: "Ingrese el texto aqui";
+  font-family: 'Oleo Script Swash Caps', cursive;
+}
+
+@media only screen and (max-width: 768px) {
+    #dataEntry {
+        display: none;
+    }
+
+    .user-entry-container {
+        display: block;
+      }
 }

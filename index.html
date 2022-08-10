@@ -19,20 +19,19 @@
     </nav>
     <main>
         <div>
-          <button type="button" class="btn btn-outline-dark">Encriptar</button>
-          <button type="button" class="btn btn-dark">Desencriptar</button>
+          <button type="button" class="btn btn-outline-dark" onclick="showEncrypted();">Encriptar</button>
+          <button type="button" class="btn btn-dark" onclick="showDecrypted();">Desencriptar</button>
         </div>
         <div class="row">
-          <div class="col-md form-floating">
+          <div class="col-md">
+            <div contenteditable class="user-entry-container" oninput="realSave(this);"></div>
             <textarea
-              class="form-control"
-              placeholder="Leave a comment here"
-              id="floatingTextarea2"
-              style="height: 100px"
-            ></textarea>
-            <label for="floatingTextarea2">Ingrese texto aqui: </label>
+                id="dataEntry"
+                placeholder="Ingrese el texto aqui"
+                name="user_entry"
+              ></textarea>
           </div>
-          <div class="col-md form-floating">
+          <div class="col-md">
             <div id="result">
 
             </div>
@@ -43,10 +42,6 @@
         </div>
       </div>
     </main>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
+    <script src="./app.js"></script>
   </body>
 </html>
