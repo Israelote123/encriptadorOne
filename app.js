@@ -14,6 +14,49 @@ const decryptKeys = {
     ufat:"u",
 }
 
+//Boton para guardar en el portapapeles
+let copy = () => {
+    let resultData;
+
+    if(screen.width < 769){
+        resultData = document.getElementById('processResult').value;
+    } else {
+        resultData = document.getElementById('textResult').textContent;
+    }
+
+    navigator.clipboard.writeText(resultData)
+    .then(() => {
+        console.log('Texto copiado')
+        if(screen.width < 769){
+            Alert.ok();
+        }
+    })
+    .catch(err => {
+        console.log('Hubo un error ', err);
+    })
+
+
+}
+
+//Manejo de pop up (tablets a telefonos)
+
+var Alert = new CustomAlert();
+
+function CustomAlert(){
+    this.render = function(){
+        let popUpBox = document.getElementById('popUpBox');
+        let back = document.getElementById('popUpOverlay');
+        back.style.display = "block";
+        popUpBox.style.display = "block";
+        document.getElementById('closeModal').innerHTML = `<button type="button" class="btn btn-outline-success" onclick="copy();"><i class="far fa-copy"></i></button>`;
+    }
+
+    this.ok = function(){
+        document.getElementById('popUpBox').style.display = `none`;
+        document.getElementById('popUpOverlay').style.display = `none`;
+    }
+}
+
 //cambia el cuadro en el cual puede escribir el usuario
 if(window.screen.width <= 768){
     document.querySelector('.user-entry-container').contentEditable = true;
@@ -30,20 +73,20 @@ let obtainData = () => {
 }
 
 //Encripta la informacion
-function encrypt(matched){
+let encrypt = (matched) => {
     return encryptKeys[matched];
 }
 
-function encryptUserEntry(data){
+let encryptUserEntry = (data) => {
     return data.replace(/a|e|i|o|u/g, encrypt);
 }
 
 //Desencripta la informacion
-function decrypt(matched){
+let decrypt = (matched) => {
     return decryptKeys[matched];
 }
 
-function decryptUserEntry(data){
+let decryptUserEntry = (data) => {
     return data.replace(/ai|enter|imes|ober|ufat/g, decrypt);
 }
 
@@ -55,11 +98,25 @@ let hideImage = () => {
 //Muestra la información encriptada
 let showEncrypted = () => {
     let dataEncrypted = encryptUserEntry(obtainData());
-    document.getElementById('result').innerHTML = `${dataEncrypted}`;
+    if(screen.width < 769){
+        Alert.render('You look very pretty today.');
+        document.getElementById('processResult').value = `${dataEncrypted}`;
+    } else {
+        document.getElementById('anyResult').style.display = `none`;
+        document.getElementById('copy').style.display = `block`;
+        document.getElementById('textResult').textContent = `${dataEncrypted}`;
+    }
 }
 
 //Muestra la información desencriptada
 let showDecrypted = () => {
     let dataDecrypted = decryptUserEntry(obtainData());
-    document.getElementById('result').innerHTML = `${dataDecrypted}`;
+    if(screen.width < 769){
+        Alert.render('You look very pretty today.');
+        document.getElementById('processResult').value = `${dataDecrypted}`;
+    } else {
+        document.getElementById('anyResult').style.display = `none`;
+        document.getElementById('copy').style.display = `block`;
+        document.getElementById('textResult').textContent = `${dataDecrypted}`;
+    }
 }
