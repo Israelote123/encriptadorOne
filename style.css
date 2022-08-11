@@ -151,6 +151,25 @@ label {
   color: rgba(163, 163, 163, 0.5);
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-family: "Oleo Script Swash Caps", cursive;
+  font-size: 17px;
+}
+
+#footerContentContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+#logo{
+  width: 80px;
+}
+
 @media only screen and (max-width: 1280px) {
   #imageContainer {
     display: flex;
