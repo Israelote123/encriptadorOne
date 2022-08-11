@@ -177,6 +177,10 @@ footer {
   height: 60px;
 }
 
+#advice{
+  margin-left: 10px;
+}
+
 @media only screen and (max-width: 1280px) {
   #imageContainer {
     display: flex;
@@ -214,6 +218,11 @@ footer {
 
   #popUpBox {
     height: 500px;
+  }
+
+  #advice {
+    position: absolute;
+    bottom: 50px;
   }
 }
 
