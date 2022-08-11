@@ -14,6 +14,11 @@ const decryptKeys = {
   ufat: "u",
 };
 
+//Fuerza a escribir en minusculas
+let importantLower = (entryData) => {
+    entryData.value = entryData.value.toLowerCase();
+}
+
 //Boton para guardar en el portapapeles
 let copy = () => {
   let resultData;

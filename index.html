@@ -36,7 +36,7 @@
           <div contenteditable class="user-entry-container" oninput="realSave(this);"></div>
           <div class="form-floating">
             <textarea class="form-control" placeholder="Ingrese el texto aqui" id="floatingTextarea"
-              name="user_entry"></textarea>
+              name="user_entry" onkeyup="importantLower(this);"></textarea>
             <label for="floatingTextarea">Ingrese el texto aqui: </label>
           </div>
         </div>
